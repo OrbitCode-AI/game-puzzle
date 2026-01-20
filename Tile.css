@@ -1,0 +1,48 @@
+.tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.tile:hover:not(.empty) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.tile:active:not(.empty) {
+  transform: scale(0.98);
+}
+
+.tile.empty {
+  background: transparent;
+  box-shadow: none;
+  cursor: default;
+}
+
+.preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #1a1a2e;
+}
+
+.preview-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 70px);
+  gap: 8px;
+}
+
+.preview-tiles .tile {
+  width: 70px;
+  height: 70px;
+}

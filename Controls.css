@@ -1,0 +1,50 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 320px;
+  margin-top: 24px;
+}
+
+.controls-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.controls-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.controls-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.controls-button {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.controls-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #1a1a2e;
+}
