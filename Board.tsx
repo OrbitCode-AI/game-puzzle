@@ -43,7 +43,11 @@ function createSolvablePuzzle(size: number): number[] {
 }
 
 function Board({ size = 4, onMove, onWin }: BoardProps) {
-  const [tiles, setTiles] = useState<number[]>(() => createSolvablePuzzle(size));
+  const initialTiles = createSolvablePuzzle(size);
+  const [tiles, setTiles] = useState<number[]>(initialTiles);
+
+  // Ensure tiles is always an array (fallback for edge cases)
+  const safeTiles = Array.isArray(tiles) ? tiles : initialTiles;
 
   const checkWin = useCallback((t: number[]) => {
     for (let i = 0; i < t.length - 1; i++) {
@@ -53,7 +57,7 @@ function Board({ size = 4, onMove, onWin }: BoardProps) {
   }, []);
 
   const handleTileClick = (index: number) => {
-    const emptyIndex = tiles.indexOf(0);
+    const emptyIndex = safeTiles.indexOf(0);
     const row = Math.floor(index / size);
     const col = index % size;
     const emptyRow = Math.floor(emptyIndex / size);
@@ -64,7 +68,7 @@ function Board({ size = 4, onMove, onWin }: BoardProps) {
       (col === emptyCol && Math.abs(row - emptyRow) === 1);
 
     if (isAdjacent) {
-      const newTiles = [...tiles];
+      const newTiles = [...safeTiles];
       [newTiles[index], newTiles[emptyIndex]] = [newTiles[emptyIndex], newTiles[index]];
       setTiles(newTiles);
       onMove?.();
@@ -83,7 +87,7 @@ function Board({ size = 4, onMove, onWin }: BoardProps) {
         gridTemplateRows: `repeat(${size}, 1fr)`,
       }}
     >
-      {tiles.map((value, index) => (
+      {safeTiles.map((value, index) => (
         <Tile
           key={index}
           value={value}
