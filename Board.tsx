@@ -75,11 +75,6 @@ function Board({ size = 4, onMove, onWin }: BoardProps) {
     }
   };
 
-  // Safety check after all hooks (to not violate Rules of Hooks)
-  if (!Array.isArray(tiles)) {
-    return <div className="board">Loading...</div>;
-  }
-
   return (
     <div
       className="board"
