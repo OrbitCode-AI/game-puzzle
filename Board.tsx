@@ -45,11 +45,6 @@ function createSolvablePuzzle(size: number): number[] {
 function Board({ size = 4, onMove, onWin }: BoardProps) {
   const [tiles, setTiles] = useState<number[]>(() => createSolvablePuzzle(size));
 
-  // Safety check during initialization
-  if (!Array.isArray(tiles)) {
-    return <div className="board">Loading...</div>;
-  }
-
   const checkWin = useCallback((t: number[]) => {
     for (let i = 0; i < t.length - 1; i++) {
       if (t[i] !== i + 1) return false;
@@ -79,6 +74,11 @@ function Board({ size = 4, onMove, onWin }: BoardProps) {
       }
     }
   };
+
+  // Safety check after all hooks (to not violate Rules of Hooks)
+  if (!Array.isArray(tiles)) {
+    return <div className="board">Loading...</div>;
+  }
 
   return (
     <div
