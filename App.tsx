@@ -1,27 +1,27 @@
-import { useVar } from 'orbitcode';
-import { Board } from './Board';
-import { Controls } from './Controls';
-import { WinModal } from './WinModal';
-import './styles.css';
+import { useVar } from 'orbitcode'
+import { Board } from './Board'
+import { Controls } from './Controls'
+import { WinModal } from './WinModal'
+import './styles.css'
 
 export default function App() {
-  const [moves, setMoves] = useVar('puzzleMoves', 0);
-  const [won, setWon] = useVar('puzzleWon', false);
-  const [key, setKey] = useVar('puzzleKey', 0);
+  const [moves, setMoves] = useVar('puzzleMoves', 0)
+  const [won, setWon] = useVar('puzzleWon', false)
+  const [key, setKey] = useVar('puzzleKey', 0)
 
   const handleMove = () => {
-    setMoves((m) => m + 1);
-  };
+    setMoves(m => m + 1)
+  }
 
   const handleWin = () => {
-    setWon(true);
-  };
+    setWon(true)
+  }
 
   const handleReset = () => {
-    setMoves(0);
-    setWon(false);
-    setKey((k) => k + 1);
-  };
+    setMoves(0)
+    setWon(false)
+    setKey(k => k + 1)
+  }
 
   return (
     <div className="puzzle-game">
@@ -35,5 +35,5 @@ export default function App() {
 
       {won && <WinModal moves={moves} onPlayAgain={handleReset} />}
     </div>
-  );
+  )
 }

@@ -1,8 +1,8 @@
-import './WinModal.css';
+import './WinModal.css'
 
 interface WinModalProps {
-  moves: number;
-  onPlayAgain: () => void;
+  moves: number
+  onPlayAgain: () => void
 }
 
 function WinModal({ moves, onPlayAgain }: WinModalProps) {
@@ -17,12 +17,12 @@ function WinModal({ moves, onPlayAgain }: WinModalProps) {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
 // Default export renders component in isolation for preview
 export default function WinModalPreview() {
-  return <WinModal moves={42} onPlayAgain={() => alert('Play again!')} />;
+  return <WinModal moves={42} onPlayAgain={() => alert('Play again!')} />
 }
 
-export { WinModal };
+export { WinModal }

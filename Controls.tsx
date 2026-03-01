@@ -1,8 +1,8 @@
-import './Controls.css';
+import './Controls.css'
 
 interface ControlsProps {
-  moves: number;
-  onReset: () => void;
+  moves: number
+  onReset: () => void
 }
 
 function Controls({ moves, onReset }: ControlsProps) {
@@ -16,7 +16,7 @@ function Controls({ moves, onReset }: ControlsProps) {
         New Game
       </button>
     </div>
-  );
+  )
 }
 
 // Default export renders component in isolation for preview
@@ -25,7 +25,7 @@ export default function ControlsPreview() {
     <div className="preview-container">
       <Controls moves={42} onReset={() => alert('Reset!')} />
     </div>
-  );
+  )
 }
 
-export { Controls };
+export { Controls }
